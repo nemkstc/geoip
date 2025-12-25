@@ -11,8 +11,8 @@ app.get("/", (context) => {
 
   return context.json({
     ip: context.req.header("cf-connecting-ip"),
-    latitude: cf.latitude,
-    longitude: cf.longitude,
+    latitude: cf.latitude ? parseFloat(cf.latitude as string) : null,
+    longitude: cf.longitude ? parseFloat(cf.longitude as string) : null,
     city: cf.city,
     country: cf.country,
     region: cf.region,
